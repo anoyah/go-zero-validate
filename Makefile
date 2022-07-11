@@ -1,10 +1,7 @@
 .PHONY: validate
 validate:
-	@protoc --proto_path=. \
-           --go_out=./types \
-		   --proto_path=./third_party \
-           --validate_out=lang=go:./types \
-           user.proto
+	@protoc --validate_out=lang=go:./types *.proto
+           
 
 .PHONY: gen-rpc
 gen-rpc:
