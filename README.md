@@ -6,6 +6,23 @@
 
 
 
+**使用方式**
+
+`Makefile`
+
+```makefile
+# grpc生成xxxx.pb.validate.go文件
+make validate
+
+# goctl生成pb已经常规go-zero文件
+make gen-rpc
+
+# 综合前两步
+make gen-rpc-validate
+```
+
+
+
 **手动调用参数校验**
 
 ```go
@@ -21,6 +38,8 @@ func (l *CreateLogic) Create(in *user.CreateRequest) (*user.CreateResponse, erro
 	}, nil
 }
 ```
+
+
 
 **中间件调用参数校验**
 
