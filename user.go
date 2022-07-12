@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"valid/internal/config"
+	"valid/internal/middleware/validate"
 	"valid/internal/server"
 	"valid/internal/svc"
 	"valid/types/user"
@@ -34,6 +35,9 @@ func main() {
 		}
 	})
 	defer s.Stop()
+
+	// TODO: 中间件调用验证方式
+	s.AddUnaryInterceptors(validate.UnaryServerInterceptor())
 
 	fmt.Printf("Starting rpc server at %s...\n", c.ListenOn)
 	s.Start()

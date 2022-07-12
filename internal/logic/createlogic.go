@@ -24,11 +24,12 @@ func NewCreateLogic(ctx context.Context, svcCtx *svc.ServiceContext) *CreateLogi
 }
 
 func (l *CreateLogic) Create(in *user.CreateRequest) (*user.CreateResponse, error) {
-	if err := in.ValidateAll(); err != nil {
-		return &user.CreateResponse{
-			Msg: err.Error(),
-		}, nil
-	}
+	// TODO: 手动调用protoc-gen-validate验证
+	// if err := in.ValidateAll(); err != nil {
+	// 	return &user.CreateResponse{
+	// 		Msg: err.Error(),
+	// 	}, nil
+	// }
 
 	return &user.CreateResponse{
 		Msg: "Ok",
